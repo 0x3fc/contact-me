@@ -1,4 +1,7 @@
+require("dotenv").config();
+
 import svelte from "rollup-plugin-svelte";
+import replace from "rollup-plugin-replace";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
@@ -30,6 +33,11 @@ export default {
     // some cases you'll need additional configuration —
     // consult the documentation for details:
     // https://github.com/rollup/rollup-plugin-commonjs
+    replace({
+      CONTACT_NAME: process.env.CONTACT_NAME,
+      CONTACT_PHONE_NUMBER: process.env.CONTACT_PHONE_NUMBER,
+      CONTACT_EMAIL: process.env.CONTACT_EMAIL,
+    }),
     resolve({
       browser: true,
       dedupe: importee =>
