@@ -1,6 +1,6 @@
-export const debounce = (fn, wait) => {
-  let timeout = null;
+let timeout = null;
 
+export const debounce = (fn, wait) => {
   (() => {
     if (timeout !== null) {
       clearTimeout(timeout);
